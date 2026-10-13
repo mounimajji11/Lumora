@@ -606,20 +606,32 @@ CORE PRINCIPLES OF LUMORA AI:
   };
 }
 
+
 export default defineConfig(() => {
   return {
     plugins: [react(), tailwindcss(), lumoraApiPlugin()],
+
     preview: {
-    host: '0.0.0.0',
-    allowedHosts: ['lumora-1-xbc9.onrender.com'],},
+      host: '0.0.0.0',
+      allowedHosts: ['lumora-1-xbc9.onrender.com'],
+    },
+
     resolve: {
       alias: {
         '@': path.resolve(process.cwd(), '.'),
       },
     },
+
     server: {
+      host: '0.0.0.0',
+      port: 3000,
+      strictPort: true,
+      allowedHosts: ['lumora-1-xbc9.onrender.com'],
       hmr: process.env.DISABLE_HMR !== 'true',
       watch: process.env.DISABLE_HMR === 'true' ? null : {},
     },
   };
 });
+
+
+
