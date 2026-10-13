@@ -609,6 +609,9 @@ CORE PRINCIPLES OF LUMORA AI:
 export default defineConfig(() => {
   return {
     plugins: [react(), tailwindcss(), lumoraApiPlugin()],
+    preview: {
+    host: '0.0.0.0',
+    allowedHosts: ['lumora-1-xbc9.onrender.com'],},
     resolve: {
       alias: {
         '@': path.resolve(process.cwd(), '.'),
